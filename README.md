@@ -12,15 +12,15 @@
 
 Логирование: Все ключевые действия и ошибки логируются с использованием настроенного логгера. Логи записываются в файл app.log.
 
-
-
 ## Структура проекта
 
+```sh
 weather-api/
 ├── config.json    # Файл конфигурации с API-ключом, настройками Redis и временем кэширования
 ├── main.go        # Основной код приложения
 ├── app.log        # Файл для записи логов (будет создан автоматически)
 └── README.md      # Описание проекта
+```
 
 ## Требования
 
@@ -35,17 +35,22 @@ Internet-доступ для обращения к Visual Crossing API.
 ## Установка и запуск
 
 1. Клонируйте репозиторий
+
 ```sh
 git clone https://github.com/Sunriseex/weather-api
 cd weather-api
 ```
+
 2. Установите зависимости
+
 ```go
 go mod tidy
 ```
+
 3. Настройте config.json
 
 Создайте файл config.json (если его нет) и укажите API-ключ, данные для подключения к Redis и время кэширования:
+
 ```json
 {
   "apiKey": "YOUR_VISUAL_CROSSING_API_KEY",
@@ -53,18 +58,23 @@ go mod tidy
   "cacheExpiration": 43200
 }
 ```
+
 4. Запустите сервер
+
 ```go
 go run main.go
 ```
+
 5. Использование API
 
 Для получения данных о погоде выполните запрос:
+
 ```sh
     curl http://localhost:8080/weather/London
 ```
 
 Пример ответа:
+
 ```json
     {
       "location": "London",
@@ -72,9 +82,11 @@ go run main.go
      "condition": "Partly Cloudy"
     }
 ```
+
 6. Логирование
 
 Логи записываются в app.log. В случае ошибок можно проверить содержимое файла:
+
 ```sh
 tail -f app.log
 ```
