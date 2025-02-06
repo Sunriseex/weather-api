@@ -67,7 +67,6 @@ func main() {
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		logger.Fatalf("Failed to start server: %v", err)
-		// log.Fatal(err)
 	}
 
 }
@@ -80,7 +79,6 @@ func getWeatherHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// ctx := context.Background()
 	cachedData, err := rdb.Get(city).Result()
 	if err == nil {
 		logger.Printf("Cache miss for city: %s", city)
